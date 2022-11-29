@@ -1,3 +1,28 @@
-.hello {
-  color: red;
+body {
+  background-image: url(./Assets/BG.jpg);
+  color: white;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-bar {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(147, 147, 147, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.list-items a {
+  text-decoration: none;
+  color: white;
 }
