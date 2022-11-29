@@ -1,10 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,300;1,700&display=swap');
+
 body {
+  font-family: 'Lato', sans-serif;
   background-image: url(./Assets/BG.jpg);
   color: white;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
+/* CSS for header and footer */
 
 .nav-bar {
   padding: 10px 60px;
@@ -29,4 +34,23 @@ body {
 
 .footer {
   padding: 10px 20px;
+}
+
+/* CSS for find section */
+
+.find {
+  padding: 40px 40px;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#showMovies {
+  background-color: #460700;
+  color: white;
+  height: 36px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
 }
