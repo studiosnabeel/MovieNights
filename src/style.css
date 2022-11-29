@@ -7,7 +7,7 @@ body {
 }
 
 .nav-bar {
-  padding: 10px 20px;
+  padding: 10px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,4 +25,8 @@ body {
 .list-items a {
   text-decoration: none;
   color: white;
+}
+
+.footer {
+  padding: 10px 20px;
 }
