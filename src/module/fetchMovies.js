@@ -1,6 +1,7 @@
 import openPopup from './popup.js';
-
+import openPopup from './popup.js';
 const url = 'https://api.tvmaze.com/shows';
+const likeUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${process.env.API_KEY}/likes/`;
 
 const popContentLoad = document.querySelector('.popContentLoad');
 
