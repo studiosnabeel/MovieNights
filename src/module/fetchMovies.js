@@ -77,8 +77,7 @@ export const showMovies = (movieList, fetchMovies) => {
       });
       movieDescription.appendChild(likes);
       icon.onclick = (e) => {
-        const { id } =
-          e.target.parentElement.parentElement.parentElement.parentElement;
+        const { id } = e.target.parentElement.parentElement.parentElement.parentElement;
         addLike(id, likes);
       };
       icon.style.cursor = 'pointer';
