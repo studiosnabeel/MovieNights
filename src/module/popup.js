@@ -1,8 +1,5 @@
-
 const popUp = document.querySelector('.popUpContent');
 const popContentLoad = document.querySelector('.popContentLoad');
-// const form = document.querySelector('.newComment');
-let noOfComments = 0;
 const background = document.querySelector('#popup-window');
 
 const fetchData = async (url) => {
