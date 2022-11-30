@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,300;1,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,300;1,700&display=swap');
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   background-image: url(./Assets/BG.jpg);
   color: white;
   box-sizing: border-box;
@@ -103,6 +103,14 @@ body {
   font-weight: 400;
   cursor: pointer;
   border: none;
+}
+
+.bi-heart:hover {
+  color: #ff5757;
+}
+
+.bi-heart:active {
+  color: #ff0;
 }
 
 /* popup section */
