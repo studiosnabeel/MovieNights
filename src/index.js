@@ -1,8 +1,14 @@
 import './style.css';
 import { showMovies, fetchMovies } from './module/fetchMovies.js';
+import countMovie from './module/countMovies.js';
 
 const movieList = document.getElementById('movie-list');
 showMovies(movieList, fetchMovies);
+
+const movieCount = document.getElementById('movie-counter');
+fetchMovies().then((data) => {
+  countMovie(data, movieCount);
+});
 
 const startIndex = document.getElementById('indexStart');
 const endIndex = document.getElementById('indexEnd');
@@ -17,9 +23,9 @@ showBtn.onclick = () => {
       errorMsg.innerHTML = 'Invalid input';
     }
     showMovies(movieList, () => fetchMovies(start, end));
-    // fetchMovies(start, end).then((data) => {
-    //   movieCounter(data, movieCount);
-    // });
+    fetchMovies(start, end).then((data) => {
+      countMovie(data, movieCount);
+    });
   }
 };
 
