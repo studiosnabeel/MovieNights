@@ -1,8 +1,6 @@
 const url = 'https://api.tvmaze.com/shows';
 // const likeUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${process.env.API_KEY}/likes/`;
 
-// const popContentLoad = document.querySelector('.popContentLoad');
-
 export const fetchMovies = async (start = 0, end = 12) => {
   try {
     const response = await fetch(url);
@@ -20,16 +18,6 @@ export const fetchMovies = async (start = 0, end = 12) => {
     return e.message;
   }
 };
-
-// const getLikes = async () => {
-//   try {
-//     const response = await fetch(likeUrl);
-//     const data = await response.json();
-//     return data;
-//   } catch (e) {
-//     return e.message;
-//   }
-// };
 
 export const showMovies = (movieList, fetchMovies) => {
   movieList.replaceChildren();
@@ -60,24 +48,6 @@ export const showMovies = (movieList, fetchMovies) => {
       nameIcon.appendChild(icon);
       movieDescription.appendChild(nameIcon);
 
-      //   const likes = document.createElement('p');
-      //   likes.className = 'likes';
-      //   likes.innerHTML = '0 likes';
-      //   getLikes().then((data) => {
-      //     data.filter((item) => {
-      //       if (item.item_id === `item${movie.id}`) {
-      //         likes.innerHTML = `${item.likes} likes`;
-      //       }
-      //       return '';
-      //     });
-      //   });
-      //   movieDescription.appendChild(likes);
-      //   icon.onclick = (e) => {
-      //     const { id } =
-      //       e.target.parentElement.parentElement.parentElement.parentElement;
-      //     addLike(id, likes);
-      //   };
-      //   icon.style.cursor = 'pointer';
       const genreLang = document.createElement('div');
       genreLang.className = 'genre-lang';
       const genre = document.createElement('p');
@@ -93,11 +63,6 @@ export const showMovies = (movieList, fetchMovies) => {
       commentBtn.className = 'commentBtn';
 
       commentBtn.innerHTML = 'Comments';
-      //   commentBtn.onclick = () => {
-      //     popContentLoad.innerHTML = '';
-      //     openPopup(movie.id);
-      //   };
-
       movieCard.appendChild(commentBtn);
       movieList.appendChild(movieCard);
       return '';
