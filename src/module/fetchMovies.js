@@ -1,6 +1,7 @@
 import openPopup from './popup.js';
+
 const url = 'https://api.tvmaze.com/shows';
-const likeUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${process.env.API_KEY}/likes/`;
+const urlLike = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${process.env.API_KEY}/likes/`;
 
 const popContentLoad = document.querySelector('.popContentLoad');
 
@@ -24,7 +25,7 @@ export const fetchMovies = async (start = 0, end = 12) => {
 
 const getLikes = async () => {
   try {
-    const response = await fetch(likeUrl);
+    const response = await fetch(urlLike);
     const data = await response.json();
     return data;
   } catch (e) {
@@ -75,8 +76,7 @@ export const showMovies = (movieList, fetchMovies) => {
       });
       movieDescription.appendChild(likes);
       icon.onclick = (e) => {
-        const { id } =
-          e.target.parentElement.parentElement.parentElement.parentElement;
+        const { id } = e.target.parentElement.parentElement.parentElement.parentElement;
         addLike(id, likes);
       };
       icon.style.cursor = 'pointer';
