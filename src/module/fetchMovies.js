@@ -1,4 +1,8 @@
+import openPopup from './popup.js';
+
 const url = 'https://api.tvmaze.com/shows';
+
+const popContentLoad = document.querySelector('.popContentLoad');
 
 export const fetchMovies = async (start = 0, end = 12) => {
   try {
@@ -63,6 +67,11 @@ export const showMovies = (movieList, fetchMovies) => {
       commentBtn.className = 'commentBtn';
 
       commentBtn.innerHTML = 'Comments';
+      commentBtn.onclick = () => {
+        popContentLoad.innerHTML = '';
+        openPopup(movie.id);
+      };
+
       movieCard.appendChild(commentBtn);
       movieList.appendChild(movieCard);
       return '';
