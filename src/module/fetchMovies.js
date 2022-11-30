@@ -28,6 +28,7 @@ export const showMovies = (movieList, fetchMovies) => {
       movieCard.id = movie.id;
 
       const movieImage = document.createElement('img');
+      movieImage.className = 'movie-img';
       movieImage.src = movie.image.medium;
       movieCard.appendChild(movieImage);
 
