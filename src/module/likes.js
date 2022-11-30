@@ -20,7 +20,7 @@ export const updateLikes = async (id, likes) => {
 
 export const addLike = async (id, likes) => {
   try {
-    await fetch(likeUrl, {
+    await fetch(urlLike, {
       method: 'POST',
       body: JSON.stringify({
         item_id: `item${id}`,

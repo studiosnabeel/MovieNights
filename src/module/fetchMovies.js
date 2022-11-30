@@ -1,4 +1,5 @@
 import openPopup from './popup.js';
+import { addLike } from './likes.js';
 
 const url = 'https://api.tvmaze.com/shows';
 const urlLike = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${process.env.API_KEY}/likes/`;
@@ -76,7 +77,8 @@ export const showMovies = (movieList, fetchMovies) => {
       });
       movieDescription.appendChild(likes);
       icon.onclick = (e) => {
-        const { id } = e.target.parentElement.parentElement.parentElement.parentElement;
+        const { id } =
+          e.target.parentElement.parentElement.parentElement.parentElement;
         addLike(id, likes);
       };
       icon.style.cursor = 'pointer';
