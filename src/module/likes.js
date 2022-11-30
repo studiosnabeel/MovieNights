@@ -17,3 +17,21 @@ export const updateLikes = async (id, likes) => {
   }
   return '';
 };
+
+export const addLike = async (id, likes) => {
+  try {
+    await fetch(likeUrl, {
+      method: 'POST',
+      body: JSON.stringify({
+        item_id: `item${id}`,
+      }),
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+    });
+    updateLikes(id, likes);
+  } catch (e) {
+    return e.message;
+  }
+  return '';
+};
