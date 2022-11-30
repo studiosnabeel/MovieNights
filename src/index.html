@@ -11,12 +11,38 @@
       <nav class="nav-bar">
         <div class="logo"><img src="./Assets/Logo.png" alt="logo" /></div>
         <ul class="list">
-          <li class="list-items"><a id="movie-counter href="index.html">Movies</a></li>
+          <li class="list-items">
+            <a id="movie-counter" href="index.html">Movies</a>
+          </li>
           <li class="list-items"><a href="index.html">Contact</a></li>
           <li class="list-items"><a href="index.html">About</a></li>
         </ul>
       </nav>
     </header>
-    <footer class='footer'><p>Created by Nabeel and Ermiyas &copy;</p></footer>
+    <div class="find" id="find-movies">
+      Show
+      <input
+        type="number"
+        id="indexStart"
+        placeholder="0"
+        min="0"
+        max="30"
+        required
+      />
+      to
+      <input
+        type="number"
+        id="indexEnd"
+        placeholder="12"
+        min="0"
+        max="40"
+        required
+      />
+      movies
+      <button id="showMovies">Show</button>
+      <p id="error"></p>
+    </div>
+    <section class="movie-list" id="movie-list"></section>
+    <footer class="footer"><p>Created by Nabeel and Ermiyas &copy;</p></footer>
   </body>
 </html>
