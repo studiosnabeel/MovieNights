@@ -1,6 +1,12 @@
+import addComment from './addingComments.js';
+import commentCounter from './commentCounters.js';
+
 const popUp = document.querySelector('.popUpContent');
 const popContentLoad = document.querySelector('.popContentLoad');
 const background = document.querySelector('#popup-window');
+const form = document.querySelector('.newComment');
+let noOfComments = 0;
+const submit = document.querySelector('.submit-comment');
 
 const fetchData = async (url) => {
   const response = await fetch(url);
@@ -51,6 +57,74 @@ const openPopup = (id) => {
     popContentLoad.appendChild(movieDescription);
     popContentLoad.appendChild(movieDetails);
     popContentLoad.appendChild(movieURL);
+
+    submit.addEventListener('click', (e) => {
+      e.preventDefault();
+      const user = document.querySelector('#name').value;
+      const comment = document.querySelector('#comment').value;
+      if (user && comment) {
+        const commentObj = {
+          item_id: id,
+          username: user,
+          comment,
+        };
+
+        addComment(commentObj).then((res) => {
+          if (res) {
+            const commentCount = document.querySelector('#commentCount');
+            const commentList = document.querySelector('.commentContainer');
+            const commentItem = document.createElement('div');
+            commentItem.classList.add('commentItem');
+            const commentTime = document.createElement('p');
+            commentTime.classList.add('commentTime');
+            commentTime.innerText = new Date();
+            const commentUser = document.createElement('p');
+            commentUser.classList.add('commentUser');
+            commentUser.innerHTML = `${user} : `;
+            const commentText = document.createElement('p');
+            commentText.classList.add('commentText');
+            commentText.innerHTML = comment;
+            commentItem.appendChild(commentTime);
+            commentItem.appendChild(commentUser);
+            commentItem.appendChild(commentText);
+            commentList.appendChild(commentItem);
+            noOfComments += 1;
+            commentCount.innerHTML = `Comments (${noOfComments})`;
+          }
+        });
+        form.reset();
+      }
+    });
+    const fetchComments = async () => {
+      const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${process.env.API_KEY}/comments/?item_id=${id}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      return data;
+    };
+    fetchComments().then((res) => {
+      const commentList = document.querySelector('.commentContainer');
+      commentList.innerHTML = '';
+      res.forEach((comment) => {
+        const commentItem = document.createElement('div');
+        commentItem.classList.add('commentItem');
+        const commentTime = document.createElement('p');
+        commentTime.classList.add('commentTime');
+        commentTime.innerText = `(${comment.creation_date}) `;
+        const commentUser = document.createElement('p');
+        commentUser.classList.add('commentUser');
+        commentUser.innerHTML = `${comment.username} : `;
+        const commentText = document.createElement('p');
+        commentText.classList.add('commentText');
+        commentText.innerHTML = comment.comment;
+        commentItem.appendChild(commentTime);
+        commentItem.appendChild(commentUser);
+        commentItem.appendChild(commentText);
+        commentList.appendChild(commentItem);
+      });
+      const commentCount = document.querySelector('#commentCount');
+      noOfComments = commentCounter();
+      commentCount.innerHTML = `Comments (${noOfComments})`;
+    });
   });
 };
 
