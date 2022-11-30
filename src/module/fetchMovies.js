@@ -1,5 +1,4 @@
 const url = 'https://api.tvmaze.com/shows';
-// const likeUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${process.env.API_KEY}/likes/`;
 
 export const fetchMovies = async (start = 0, end = 12) => {
   try {
