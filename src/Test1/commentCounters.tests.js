@@ -2,10 +2,10 @@
  * @jest-environment jsdom
  */
 
-const commentCounter = require("../module/commentCounters.js");
+const commentCounter = require('../module/commentCounters.js');
 
-describe("Comment Counter", () => {
-  test("should return the number of comments", () => {
+describe('Comment Counter', () => {
+  test('should return the number of comments', () => {
     document.body.innerHTML = `
          <div class="commentContainer">
              <div class="commentItem">
@@ -22,7 +22,7 @@ describe("Comment Counter", () => {
          `;
     expect(commentCounter()).toBe(2);
   });
-  test("should return 0 if there are no comments", () => {
+  test('should return 0 if there are no comments', () => {
     document.body.innerHTML = `
          <div class="commentContainer">
          </div>
