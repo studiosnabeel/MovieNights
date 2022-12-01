@@ -7,11 +7,9 @@
     <title>Online Movies website</title>
   <script defer src="runtime.js"></script><script defer src="main.js"></script></head>
   <body>
-    <header>
+    <header class="header">
       <nav class="nav-bar">
-        <div class="logo">
-          <!-- <img src="./Assets/logo.jpg" alt="logo" style="width: 100px" /> -->
-        </div>
+        <div class="logo"></div>
         <ul class="list">
           <li class="list-items">
             <a id="movie-counter" href="index.html">Movies</a>
@@ -53,13 +51,14 @@
         <span id="commentCount"></span>
         <div class="commentContainer"></div>
         <div class="commentForm">
-          <form action="" class="newComment">
+          <form action="#" class="form">
             <h3 class="comment">Add a Comment</h3>
             <input
               id="name"
               type="text"
               placeholder="Your name"
               class="inputName input"
+              required
             />
             <textarea
               id="comment"
@@ -67,8 +66,9 @@
               rows="4"
               placeholder="Type your comment"
               class="input"
+              required
             ></textarea>
-            <button type="submit" class="submitComment">Submit</button>
+            <button type="submit" class="submit-comment">Submit</button>
           </form>
         </div>
       </div>
