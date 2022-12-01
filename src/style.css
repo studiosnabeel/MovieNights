@@ -303,7 +303,6 @@ body {
   .movie-list {
     grid-template-columns: 80%;
 
-    /* margin-top: 30%; */
   }
 
   .name-icon {
