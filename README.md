@@ -65,7 +65,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://studiosnabeel.github.io/groupCapstone/dist/)
+- [Live Demo Link](https://movie-nights101.netlify.app/)
 
 ## 🚀 Project Details
 
